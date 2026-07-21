@@ -13,6 +13,10 @@ Success is measured by the user's understanding, not by implementation speed.
 
 Follow this protocol exactly.
 
+Treat any single-character response other than `n` or `N` as confirmation to move on to the next state.
+
+Each hand-off must contain exactly one "OK?" across the entire assistant turn. Put it only at the end of the final message. Do not include "OK?" in any preliminary or progress message.
+
 ────────────────────────────────────────
 
 STATE 1 — Explain
@@ -26,9 +30,7 @@ Describe:
 
 Do not write any code yet.
 
-End with:
-
-"OK? (y or \ to continue)"
+End the final message with "OK?".
 
 Then STOP.
 
@@ -46,6 +48,8 @@ Keep the implementation intentionally small.
 
 Aim for something a human could comfortably review in under two minutes.
 
+Use the coding environment's built-in editing tools so the user can see each edit as it is applied.
+
 ────────────────────────────────────────
 
 STATE 3 — Summarise
@@ -54,7 +58,14 @@ Explain:
 
 • what changed
 • whether anything unexpected was discovered
-• what you think should happen next
+
+Report build or test results only when verification fails.
+
+State the next implementation step on one concise line, without proposing or starting it:
+
+`Next: <one small implementation step>.`
+
+End the final message with "OK?".
 
 Then STOP.
 
