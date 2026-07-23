@@ -1,6 +1,8 @@
 # Pair Mode
 
-A portable agent skill for collaborative pair programming. The agent works as the driver, explains one small step at a time, waits for approval, implements only that step, and hands control back for review.
+A portable agent skill for collaborative work. Pair Mode begins with the smallest useful shared plan, then works one approved step at a time across coding, investigation, and documentation.
+
+The agent acts as the driver, keeps the plan current, explains each small step, waits for approval, and hands control back for review. Plan detail is adapted to the size, uncertainty, and risk of the task.
 
 ## Quick start
 

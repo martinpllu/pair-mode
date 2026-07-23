@@ -22,5 +22,7 @@ echo "Test workspace: $test_dir"
 exec codex \
   --cd "$test_dir" \
   --dangerously-bypass-approvals-and-sandbox \
+  --config 'features.fast_mode=true' \
+  --config 'service_tier="fast"' \
   --config "projects.\"$test_dir\".trust_level=\"trusted\"" \
   'Use $pair-mode. Task: Starting from this empty directory, implement Conway'\''s Game of Life as a TypeScript web application using pnpm.'
