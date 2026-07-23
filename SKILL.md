@@ -109,7 +109,7 @@ After drafting the initial plan:
 • invite the user to add, remove, reorder, split, or clarify items
 • present these choices:
 
-  1. Use the plan at its current level of detail, refining later only if needed.
+  1. Use the plan at its current level of detail and refine broad items just in time.
   2. Refine selected items before starting.
   3. Refine the whole plan before starting.
 
@@ -121,9 +121,27 @@ After requested refinement, present the revised detail as a draft. Propose using
 
 After the plan is approved, announce the first substantive work step in a new STATE 1 hand-off and wait before beginning it.
 
-During the work, propose further refinement only when the next part is unclear, risky, newly understood, or the user requests it. Do not automatically refine every top-level item.
+During the work, use just-in-time refinement:
 
-Keep a plan file as the source of truth. Mark an item `- [x]` after completing it, and mark a parent complete only after all its nested items are complete. Treat marking the current item complete as part of that work step; treat a substantial plan revision as its own paired work step.
+• if the next unchecked plan item is already small enough for one reviewable work step, use it without further refinement
+• if it is too broad, refine it before proceeding
+• add the fewest child items needed to show a coherent local sequence
+• refine one level at a time; add another level only when the next child is still too broad
+• do not automatically refine every top-level item
+
+When the plan already contains suitable children, follow the next unchecked child without proposing another breakdown.
+
+When creating a just-in-time refinement, show the proposed parent and child items in the next confirmation hand-off. Order the children so the first unchecked child is the immediate work step. Keep the refinement provisional until the user confirms it.
+
+The user's confirmation approves both the local refinement and its first child. Write the approved children to the plan file before executing the first child, then execute it without another explanation or confirmation.
+
+Treat recording an approved local refinement as bookkeeping within the first child work step. If the user rejects or changes the refinement, revise it before acting. Treat any refinement that materially changes scope, sequence, or approach as a separate paired planning step instead.
+
+Keep a plan file as the source of truth. Whenever the user approves or requests a refinement or other plan change, update the file in the same turn. This includes adding, removing, reordering, splitting, and clarifying items. Renumber affected items and preserve the hierarchy.
+
+Except for a clearly provisional refinement awaiting confirmation, never allow a plan described in the conversation or displayed under `Next:` to diverge from the plan file. Ensure every plan-based hand-off reflects the file's current numbering, wording, hierarchy, and checkbox state.
+
+Mark an item `- [x]` after completing it, and mark a parent complete only after all its nested items are complete. Treat marking the current item complete and recording an approved local refinement as bookkeeping within the associated work step; treat a substantial plan revision as its own paired work step.
 
 Update the plan when the work reveals new information. Add discoveries in the appropriate position rather than keeping a separate hidden plan. Stop and discuss discoveries that materially change the scope, sequence, or approach before continuing.
 
@@ -181,15 +199,26 @@ If you are presenting two or more choices, follow the CHOICES hand-off and omit 
 
 If you need information from the user, use an information hand-off and omit the remainder of this state.
 
-State the next work step on one concise line, without proposing or starting it:
+When no numbered plan applies, state the next work step on one concise line without starting it:
 
 `Next: <one small work step>.`
 
-When following a numbered plan, anchor the next step to the most specific applicable plan item:
+When following a numbered plan, format `Next:` as an indented Markdown task-list tree. Find the top-level ancestor of the immediate work item and show that entire top-level node with all of its descendants, preserving the plan's order, numbering, labels, hierarchy, and checkbox states:
 
-`Next: <plan number>. <plan item>: <one small work step>.`
+```markdown
+Next:
 
-Use the plan's exact number and a concise form of its label. When the plan item and the small work step are the same, state the item only rather than repeating it. When moving to a new top-level item, always name its number explicitly.
+- [ ] 2. <top-level plan item>
+  - [x] 2.1 <completed child>
+  - [ ] **NEXT:** 2.2 <immediate work step>
+  - [ ] 2.3 <later child>
+```
+
+Indent each level by two spaces. Put `**NEXT:**` immediately after the checkbox of the one item that will be worked on next. Mark exactly one item. Keeping the marker at the start of the item content ensures it remains visible when a long label wraps.
+
+Treat `**NEXT:**` as display-only annotation and never write it to the plan file.
+
+For a proposed just-in-time refinement, show the complete current top-level subtree including all proposed children so the user can review the local sequence. Do not add explanatory prose that repeats the hierarchy.
 
 Leave a blank line and put `OK?` on its own final line.
 
