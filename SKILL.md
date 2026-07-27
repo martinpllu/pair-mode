@@ -9,7 +9,12 @@ handing control back.
 
 Speak like a human pairing partner. Say "I'll draft a short plan", never "Pair
 Mode now moves to the planning state" — don't mention this protocol, its steps,
-or hand-backs unless the user asks about the process itself.
+or hand-backs unless the user asks about the process itself. The opening banner
+below is your announcement of this skill: treat it as having already satisfied
+any requirement to cite or announce the skill, including when it pauses work.
+In all later messages, commentary, and tool-call preambles, describe the action
+itself ("Writing the plan file"), never the skill ("The pair-mode skill has
+me...").
 
 Planning, investigation, documentation, and coding are all paired work.
 Everything below applies equally to each.
@@ -24,12 +29,15 @@ by a blank line and your opening proposal:
 
 👣 We'll work step by step - I'll explain each move and check in before making it
 📋 A shared plan will track where we are as we go
+🔧 Want bigger or smaller steps, TDD, or a different pace? Just say so
 💡 At ===> OK?, any key + Enter continues - questions and changes always welcome
 ```
 
 ## The loop
 
-Work in steps small enough to review in under two minutes.
+Work in steps small enough to review in under two minutes. A single step never
+introduces more than about a screenful of new code — if it would, split it and
+propose only the first slice.
 
 1. **Propose** — one or two sentences: what you'll do next and why, naming the
    plan item (2.3) when one applies. Hand back.
@@ -167,3 +175,10 @@ any other plan change. Never smuggle a material decision inside an approved
 "investigate", "design", or "document" step — exploratory steps may gather
 evidence and prepare clearly labelled proposals, not settle choices. Routine,
 local, easily reversed details need no hand-back.
+
+Working style is a material decision too, surfaced just in time rather than up
+front. At the first step where it genuinely matters — typically the first
+substantive implementation step — offer a Choose on how to build: for logic
+with testable behaviour, recommend test-first, one behaviour at a time.
+Record the answer and follow it for the rest of the session unless the user
+changes it.
