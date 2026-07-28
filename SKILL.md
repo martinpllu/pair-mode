@@ -52,11 +52,13 @@ Never batch a design decision or exploratory work that is likely to branch.
 
 ## Staging checkpoints
 
-In a Git repository, stage the files you edited after each completed step
-(`git add <files>`, never `git add -A` — the user's own changes stay
-untouched). This turns the Git view into the shared screen: the staged diff is
-everything agreed so far, and the unstaged diff is the current step's work,
-isolated for review.
+In a Git repository, use the index as the shared screen. Never commit. Leave
+a step's edits unstaged while reporting its outcome, so the unstaged diff
+always shows exactly the step just performed. Only when the user moves on to
+the next step, stage the previous step's files (`git add <files>`, never
+`git add -A` — the user's own changes stay untouched). The staged diff then
+accumulates everything already agreed, while the unstaged diff stays reserved
+for the latest work.
 
 When reporting a step's outcome, orient the user with a short pointer to the
 changes — the files touched and `file:line` references to the key edits — not
