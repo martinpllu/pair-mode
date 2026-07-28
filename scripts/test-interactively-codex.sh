@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-skill_dir=$(git rev-parse --show-toplevel)
-test_dir="$skill_dir/pair-mode-test"
+repo_dir=$(git rev-parse --show-toplevel)
+test_dir="$repo_dir/pair-mode-test"
 
 if [[ -L "$test_dir" ]]; then
   echo "Refusing to clean symlinked test workspace: $test_dir" >&2
@@ -13,9 +13,6 @@ mkdir -p "$test_dir"
 find "$test_dir" -mindepth 1 -maxdepth 1 -exec rm -rf -- {} +
 
 git -C "$test_dir" init --quiet
-printf '.agents/\n' >> "$test_dir/.git/info/exclude"
-mkdir -p "$test_dir/.agents/skills"
-ln -s "$skill_dir" "$test_dir/.agents/skills/pair-mode"
 
 echo "Test workspace: $test_dir"
 
