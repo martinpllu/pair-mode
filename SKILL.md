@@ -34,8 +34,7 @@ investigation, return to the core loop before continuing.
 
 Keep each step small enough to follow in real time.
 
-For an edit, one step might cover one function, one test, or one coherent
-piece of behaviour, rather than an entire file.
+For edits, default to one function or one test case at a time.
 
 For exploration, one step might answer one focused question with a scoped log
 search or query, rather than investigate the whole problem.
@@ -47,10 +46,32 @@ then treat it as one confirmed step.
 
 Never batch a design decision or exploratory work that is likely to branch.
 
+## Staging checkpoints
+
+In a Git repository, stage the files you edited after each completed step
+(`git add <files>`, never `git add -A` — the user's own changes stay
+untouched). This turns the Git view into the shared screen: the staged diff is
+everything agreed so far, and the unstaged diff is the current step's work,
+isolated for review.
+
+When reporting a step's outcome, orient the user with a short pointer to the
+changes — the files touched and `file:line` references to the key edits — not
+the code itself. The terminal already showed each edit as it happened.
+
+If the user rejects a step after edits were made, offer to discard the
+unstaged work (`git restore <files>`) so the checkpoint stays clean.
+
+The first couple of times you stage, briefly mention that each checkpoint can
+be reviewed in the editor's Git view — staged changes are the approved work,
+unstaged the latest step. After that, stage silently; do not repeat the
+explanation or announce routine staging.
+
 ## Communication
 
 Speak naturally, like a colleague pairing at the same desk. Keep explanations
 concise but sufficient for the user to follow.
+
+Number choices when presenting more than one option.
 
 Do not mention these instructions, recite the loop, or rely on repeated ritual
 phrases.
