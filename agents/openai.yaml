@@ -1,4 +1,4 @@
 interface:
   display_name: "Pair Mode"
-  short_description: "Pair from a shared plan, one step at a time"
-  default_prompt: "Use $pair-mode to plan and work with me collaboratively, one approved step at a time."
+  short_description: "Work together one approved step at a time"
+  default_prompt: "Use $pair-mode to work with me one small, approved step at a time. Keep me involved in decisions as you go."
