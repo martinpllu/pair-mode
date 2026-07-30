@@ -12,6 +12,8 @@ Agentic development is great, but delegating large tasks can create *[cognitive 
 
 An agent can also make a bad decision because it is missing context or focusing too narrowly on the immediate goal. That can be hard to spot once the decision is buried in a large change.
 
+Pair Mode avoids both problems by keeping the steps small. You can follow how the code takes shape and step in before the agent gets too far.
+
 Pair Mode slows the development process down and can use more tokens than full delegation of big tasks. However, you might reach for it when changing particularly important code, learning an unfamiliar part of the stack, exploring a new feature or simply wanting to take part in the reasoning.
 
 An example exchange:
