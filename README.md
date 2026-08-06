@@ -1,7 +1,5 @@
 # Pair Mode
 
-> Build with AI without losing the plot.
-
 Pair Mode is a skill that makes working with a coding agent feel more like pair programming. It keeps you in the loop as the agent works in small steps, so you can understand the decisions and steer when necessary.
 
 Read the [Pair Mode skill](SKILL.md).
